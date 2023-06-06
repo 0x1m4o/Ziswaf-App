@@ -1,4 +1,5 @@
 import 'package:go_router/go_router.dart';
+import 'package:ziswaf/pages/forgot_password.dart';
 import 'package:ziswaf/pages/homepage.dart';
 import 'package:ziswaf/pages/intro_slider.dart';
 import 'package:ziswaf/pages/login.dart';
@@ -13,16 +14,21 @@ final router = GoRouter(initialLocation: PageName.intro, routes: [
   ),
   GoRoute(
     path: PageName.home,
-    builder: (context, state) => HomePage(),
+    builder: (context, state) => const HomePage(),
   ),
   GoRoute(
     path: PageName.slider,
-    builder: (context, state) => OnboardingScreen(),
+    builder: (context, state) => const OnboardingScreen(),
   ),
   GoRoute(
-    path: PageName.login,
-    builder: (context, state) => LoginPage(),
-  ),
+      path: PageName.login,
+      builder: (context, state) => LoginPage(),
+      routes: [
+        GoRoute(
+          path: PageName.forgotPassword,
+          builder: (context, state) => const ForgotPassword(),
+        )
+      ]),
   GoRoute(
     path: PageName.signUp,
     builder: (context, state) => SignUpPage(),

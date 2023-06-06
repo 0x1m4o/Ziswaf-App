@@ -22,7 +22,11 @@ class _LoginPageState extends State<LoginPage> {
         centerTitle: true,
         backgroundColor: Colors.white,
         elevation: 0,
-        title: Image.asset('assets/images/ziswaf.png'),
+        title: Image.asset(
+          'assets/images/ziswaf.png',
+          height: 25,
+          width: 95.74,
+        ),
       ),
       body: Container(
         color: Colors.white,
@@ -82,11 +86,17 @@ class _LoginPageState extends State<LoginPage> {
                         hintStyle: textMBold.copyWith(color: neutral50),
                         border: UnderlineInputBorder(
                             borderSide: new BorderSide(color: neutral30)))),
-                Padding(
-                  padding: const EdgeInsets.only(top: 15),
-                  child: Text(
-                    'Lupa kata sandi?',
-                    style: textSBlack.copyWith(color: secondaryMain),
+                InkWell(
+                  onTap: () {
+                    GoRouter.of(context)
+                        .go('${PageName.login}/${PageName.forgotPassword}');
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 15),
+                    child: Text(
+                      'Lupa kata sandi?',
+                      style: textSBlack.copyWith(color: secondaryMain),
+                    ),
                   ),
                 ),
               ],
@@ -97,54 +107,57 @@ class _LoginPageState extends State<LoginPage> {
       bottomNavigationBar: Padding(
         padding: MediaQuery.of(context).viewInsets,
         child: BottomAppBar(
+            elevation: 0,
             child: Container(
-          color: Colors.transparent,
-          height: 130,
-          width: double.maxFinite,
-          child: Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(14),
-                child: Container(
-                    width: double.infinity,
-                    height: 45,
-                    child: ElevatedButton(
-                      onPressed: () {},
-                      child: Text(
-                        'Masuk',
-                        style: textMBold,
-                      ),
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: primaryMain),
-                    )),
+              color: Colors.transparent,
+              height: 115,
+              width: double.maxFinite,
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(15),
+                    child: Container(
+                        width: double.infinity,
+                        height: 45,
+                        child: ElevatedButton(
+                          onPressed: () {},
+                          child: Text(
+                            'Masuk',
+                            style: textMBold,
+                          ),
+                          style: ElevatedButton.styleFrom(
+                              backgroundColor: primaryMain),
+                        )),
+                  ),
+                  Container(
+                    padding: EdgeInsets.symmetric(vertical: 6),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          textAlign: TextAlign.start,
+                          'Belum memiliki akun?',
+                          style: captionTextBold.copyWith(color: neutral60),
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        InkWell(
+                          onTap: () {
+                            GoRouter.of(context).go(PageName.signUp);
+                          },
+                          child: Text(
+                            textAlign: TextAlign.start,
+                            'Daftar Sekarang',
+                            style: captionTextBold.copyWith(color: primaryMain),
+                          ),
+                        )
+                      ],
+                    ),
+                  )
+                ],
               ),
-              Container(
-                padding: EdgeInsets.symmetric(vertical: 6),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      'Belum memiliki akun?',
-                      style: textMRegular.copyWith(color: neutral60),
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    InkWell(
-                      onTap: () {
-                        GoRouter.of(context).go(PageName.signUp);
-                      },
-                      child: Text(
-                        'Daftar Disini',
-                        style: textMRegular.copyWith(color: primaryMain),
-                      ),
-                    )
-                  ],
-                ),
-              )
-            ],
-          ),
-        )),
+            )),
       ),
     );
   }

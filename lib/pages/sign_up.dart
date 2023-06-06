@@ -28,7 +28,7 @@ class _SignUpPageState extends State<SignUpPage> {
         title: Image.asset(
           'assets/images/ziswaf.png',
           width: 95.74,
-          height: 14,
+          height: 25,
         ),
       ),
       body: Container(
@@ -138,7 +138,7 @@ class _SignUpPageState extends State<SignUpPage> {
         child: BottomAppBar(
             elevation: 0,
             child: Container(
-              height: 110,
+              height: 115,
               width: double.maxFinite,
               child: Column(
                 children: [

@@ -3,5 +3,6 @@ class PageName {
   static const home = '/home';
   static const login = '/login';
   static const signUp = '/sign-up';
-  static const slider = '/slider-demo';
+  static const slider = '/sliderDemo';
+  static const forgotPassword = 'forgotPassword';
 }
