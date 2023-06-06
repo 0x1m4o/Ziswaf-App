@@ -94,54 +94,58 @@ class _LoginPageState extends State<LoginPage> {
           ),
         ),
       ),
-      bottomNavigationBar: BottomAppBar(
-          child: Container(
-        height: 130,
-        width: double.maxFinite,
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(14),
-              child: Container(
-                  width: double.infinity,
-                  height: 45,
-                  child: ElevatedButton(
-                    onPressed: () {},
-                    child: Text(
-                      'Masuk',
-                      style: textMBold,
-                    ),
-                    style:
-                        ElevatedButton.styleFrom(backgroundColor: primaryMain),
-                  )),
-            ),
-            Container(
-              padding: EdgeInsets.symmetric(vertical: 6),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    'Belum memiliki akun?',
-                    style: textMRegular.copyWith(color: neutral60),
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  InkWell(
-                    onTap: () {
-                      GoRouter.of(context).go(PageName.signUp);
-                    },
-                    child: Text(
-                      'Daftar Disini',
-                      style: textMRegular.copyWith(color: primaryMain),
-                    ),
-                  )
-                ],
+      bottomNavigationBar: Padding(
+        padding: MediaQuery.of(context).viewInsets,
+        child: BottomAppBar(
+            child: Container(
+          color: Colors.transparent,
+          height: 130,
+          width: double.maxFinite,
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(14),
+                child: Container(
+                    width: double.infinity,
+                    height: 45,
+                    child: ElevatedButton(
+                      onPressed: () {},
+                      child: Text(
+                        'Masuk',
+                        style: textMBold,
+                      ),
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: primaryMain),
+                    )),
               ),
-            )
-          ],
-        ),
-      )),
+              Container(
+                padding: EdgeInsets.symmetric(vertical: 6),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Belum memiliki akun?',
+                      style: textMRegular.copyWith(color: neutral60),
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    InkWell(
+                      onTap: () {
+                        GoRouter.of(context).go(PageName.signUp);
+                      },
+                      child: Text(
+                        'Daftar Disini',
+                        style: textMRegular.copyWith(color: primaryMain),
+                      ),
+                    )
+                  ],
+                ),
+              )
+            ],
+          ),
+        )),
+      ),
     );
   }
 }

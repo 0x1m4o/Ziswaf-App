@@ -20,11 +20,16 @@ class _SignUpPageState extends State<SignUpPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: Colors.white,
         elevation: 0,
-        title: Image.asset('assets/images/ziswaf.png'),
+        title: Image.asset(
+          'assets/images/ziswaf.png',
+          width: 95.74,
+          height: 14,
+        ),
       ),
       body: Container(
         color: Colors.white,
@@ -35,22 +40,26 @@ class _SignUpPageState extends State<SignUpPage> {
             child: ListView(
               children: [
                 Text(
+                  textAlign: TextAlign.start,
                   'Daftar',
-                  style: textLSemibold,
+                  style: pageTitleBold.copyWith(color: neutral100),
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 8),
                   child: Text(
+                    textAlign: TextAlign.start,
                     'Isi form di bawah untuk mendaftarkan akun',
-                    style: textMBold.copyWith(color: neutral50),
+                    style: secondaryTextSemiBold.copyWith(color: neutral70),
                   ),
                 ),
                 SizedBox(
-                  height: 25,
+                  height: 15,
                 ),
                 Text(
+                  textAlign: TextAlign.start,
                   'Nomor WhatsApp',
-                  style: textSBlack.copyWith(color: neutral60),
+                  style: captionTextBold.copyWith(
+                      fontWeight: semiBold, color: neutral90),
                 ),
                 TextField(
                     decoration: InputDecoration(
@@ -61,14 +70,14 @@ class _SignUpPageState extends State<SignUpPage> {
                         border: UnderlineInputBorder(
                             borderSide: new BorderSide(color: neutral30)))),
                 SizedBox(
-                  height: 25,
+                  height: 15,
                 ),
                 Text(
-                  'Kata Sandi',
-                  style: textSBlack.copyWith(color: neutral60),
-                ),
+                    textAlign: TextAlign.start,
+                    'Kata Sandi',
+                    style: captionTextSemiBold.copyWith(color: neutral90)),
                 TextField(
-                    controller: isSecurePassC,
+                    controller: isSecureC,
                     obscureText: isSecurePass,
                     decoration: InputDecoration(
                         suffixIcon: IconButton(
@@ -88,16 +97,18 @@ class _SignUpPageState extends State<SignUpPage> {
                 Padding(
                   padding: const EdgeInsets.only(top: 10),
                   child: Text(
+                    textAlign: TextAlign.start,
                     'Minimum 8 Karakter',
-                    style: textMBold.copyWith(color: neutral50),
+                    style: overlineSemiBold.copyWith(color: neutral70),
                   ),
                 ),
                 SizedBox(
-                  height: 25,
+                  height: 15,
                 ),
                 Text(
+                  textAlign: TextAlign.start,
                   'Konfirmasi Kata Sandi',
-                  style: textSBlack.copyWith(color: neutral60),
+                  style: captionTextSemiBold.copyWith(color: neutral90),
                 ),
                 TextField(
                     controller: isSecurePassC,
@@ -122,54 +133,61 @@ class _SignUpPageState extends State<SignUpPage> {
           ),
         ),
       ),
-      bottomNavigationBar: BottomAppBar(
-          child: Container(
-        height: 130,
-        width: double.maxFinite,
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(14),
-              child: Container(
-                  width: double.infinity,
-                  height: 45,
-                  child: ElevatedButton(
-                    onPressed: () {},
-                    child: Text(
-                      'Daftar',
-                      style: textMBold,
-                    ),
-                    style:
-                        ElevatedButton.styleFrom(backgroundColor: primaryMain),
-                  )),
-            ),
-            Container(
-              padding: EdgeInsets.symmetric(vertical: 6),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+      bottomNavigationBar: Padding(
+        padding: MediaQuery.of(context).viewInsets,
+        child: BottomAppBar(
+            elevation: 0,
+            child: Container(
+              height: 110,
+              width: double.maxFinite,
+              child: Column(
                 children: [
-                  Text(
-                    'Sudah memiliki akun?',
-                    style: textMRegular.copyWith(color: neutral60),
+                  Padding(
+                    padding: const EdgeInsets.all(15),
+                    child: Container(
+                        width: double.infinity,
+                        height: 45,
+                        child: ElevatedButton(
+                          onPressed: () {},
+                          child: Text(
+                            textAlign: TextAlign.start,
+                            'Daftar',
+                            style: textMBold,
+                          ),
+                          style: ElevatedButton.styleFrom(
+                              backgroundColor: primaryMain),
+                        )),
                   ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  InkWell(
-                    onTap: () {
-                      GoRouter.of(context).go(PageName.login);
-                    },
-                    child: Text(
-                      'Masuk sekarang',
-                      style: textMRegular.copyWith(color: primaryMain),
+                  Container(
+                    padding: EdgeInsets.symmetric(vertical: 6),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          textAlign: TextAlign.start,
+                          'Sudah memiliki akun?',
+                          style: captionTextBold.copyWith(color: neutral60),
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        InkWell(
+                          onTap: () {
+                            GoRouter.of(context).go(PageName.login);
+                          },
+                          child: Text(
+                            textAlign: TextAlign.start,
+                            'Masuk sekarang',
+                            style: captionTextBold.copyWith(color: primaryMain),
+                          ),
+                        )
+                      ],
                     ),
                   )
                 ],
               ),
-            )
-          ],
-        ),
-      )),
+            )),
+      ),
     );
   }
 }
