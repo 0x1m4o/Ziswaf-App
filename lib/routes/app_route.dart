@@ -1,11 +1,12 @@
 import 'package:go_router/go_router.dart';
-import 'package:ziswaf/pages/forgot_password.dart';
-import 'package:ziswaf/pages/homepage.dart';
-import 'package:ziswaf/pages/intro_slider.dart';
-import 'package:ziswaf/pages/login.dart';
-import 'package:ziswaf/pages/sign_up.dart';
-import 'package:ziswaf/pages/slider_demo.dart';
 import 'package:ziswaf/routes/pages_name.dart';
+import '../pages/forgot_password.dart';
+import '../pages/homepage.dart';
+import '../pages/intro_slider.dart';
+import '../pages/login.dart';
+import '../pages/sign_up.dart';
+import '../pages/slider_demo.dart';
+import '../pages/reset_password.dart';
 
 final router = GoRouter(initialLocation: PageName.intro, routes: [
   GoRoute(
@@ -25,9 +26,14 @@ final router = GoRouter(initialLocation: PageName.intro, routes: [
       builder: (context, state) => LoginPage(),
       routes: [
         GoRoute(
-          path: PageName.forgotPassword,
-          builder: (context, state) => const ForgotPassword(),
-        )
+            path: PageName.forgotPassword,
+            builder: (context, state) => const ForgotPassword(),
+            routes: [
+              GoRoute(
+                path: PageName.resetPassword,
+                builder: (context, state) => ResetPasswordPage(),
+              )
+            ])
       ]),
   GoRoute(
     path: PageName.signUp,

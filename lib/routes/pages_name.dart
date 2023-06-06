@@ -5,4 +5,5 @@ class PageName {
   static const signUp = '/sign-up';
   static const slider = '/sliderDemo';
   static const forgotPassword = 'forgotPassword';
+  static const resetPassword = 'reset';
 }

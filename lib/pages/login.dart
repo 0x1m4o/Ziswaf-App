@@ -47,7 +47,7 @@ class _LoginPageState extends State<LoginPage> {
                     style: textMBold.copyWith(color: neutral50),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 25,
                 ),
                 Text(
@@ -57,12 +57,12 @@ class _LoginPageState extends State<LoginPage> {
                 TextField(
                     decoration: InputDecoration(
                         focusedBorder: UnderlineInputBorder(
-                            borderSide: new BorderSide(color: neutral50)),
+                            borderSide: BorderSide(color: neutral50)),
                         hintText: 'Masukan Nomor WhatsApp',
                         hintStyle: textMBold.copyWith(color: neutral50),
                         border: UnderlineInputBorder(
-                            borderSide: new BorderSide(color: neutral30)))),
-                SizedBox(
+                            borderSide: BorderSide(color: neutral30)))),
+                const SizedBox(
                   height: 30,
                 ),
                 Text(
@@ -73,7 +73,10 @@ class _LoginPageState extends State<LoginPage> {
                     obscureText: isSecure,
                     decoration: InputDecoration(
                         suffixIcon: IconButton(
-                          icon: Icon(Icons.remove_red_eye),
+                          color: Colors.grey,
+                          icon: Icon(isSecure
+                              ? Icons.remove_red_eye
+                              : Icons.remove_red_eye_outlined),
                           onPressed: () {
                             setState(() {
                               isSecure = !isSecure;
@@ -81,11 +84,11 @@ class _LoginPageState extends State<LoginPage> {
                           },
                         ),
                         focusedBorder: UnderlineInputBorder(
-                            borderSide: new BorderSide(color: neutral50)),
+                            borderSide: BorderSide(color: neutral50)),
                         hintText: 'Masukan kata sandi',
                         hintStyle: textMBold.copyWith(color: neutral50),
                         border: UnderlineInputBorder(
-                            borderSide: new BorderSide(color: neutral30)))),
+                            borderSide: BorderSide(color: neutral30)))),
                 InkWell(
                   onTap: () {
                     GoRouter.of(context)
@@ -116,21 +119,21 @@ class _LoginPageState extends State<LoginPage> {
                 children: [
                   Padding(
                     padding: const EdgeInsets.all(15),
-                    child: Container(
+                    child: SizedBox(
                         width: double.infinity,
                         height: 45,
                         child: ElevatedButton(
                           onPressed: () {},
+                          style: ElevatedButton.styleFrom(
+                              backgroundColor: primaryMain),
                           child: Text(
                             'Masuk',
                             style: textMBold,
                           ),
-                          style: ElevatedButton.styleFrom(
-                              backgroundColor: primaryMain),
                         )),
                   ),
                   Container(
-                    padding: EdgeInsets.symmetric(vertical: 6),
+                    padding: const EdgeInsets.symmetric(vertical: 6),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -139,7 +142,7 @@ class _LoginPageState extends State<LoginPage> {
                           'Belum memiliki akun?',
                           style: captionTextBold.copyWith(color: neutral60),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 10,
                         ),
                         InkWell(

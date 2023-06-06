@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:ziswaf/routes/pages_name.dart';
 import 'package:ziswaf/theme/colors.dart';
 import 'package:ziswaf/theme/fonts.dart';
 
@@ -85,7 +86,10 @@ class ForgotPassword extends StatelessWidget {
                         width: double.infinity,
                         height: 45,
                         child: ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            GoRouter.of(context).go(
+                                '${PageName.login}/${PageName.forgotPassword}/${PageName.resetPassword}');
+                          },
                           child: Text(
                             'Selanjutnya',
                             style: textMBold,

@@ -5,7 +5,7 @@ import 'package:ziswaf/theme/colors.dart';
 import 'package:ziswaf/theme/fonts.dart';
 
 class SignUpPage extends StatefulWidget {
-  SignUpPage({super.key});
+  const SignUpPage({super.key});
 
   @override
   State<SignUpPage> createState() => _SignUpPageState();
@@ -52,7 +52,7 @@ class _SignUpPageState extends State<SignUpPage> {
                     style: secondaryTextSemiBold.copyWith(color: neutral70),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
                 Text(
@@ -64,12 +64,12 @@ class _SignUpPageState extends State<SignUpPage> {
                 TextField(
                     decoration: InputDecoration(
                         focusedBorder: UnderlineInputBorder(
-                            borderSide: new BorderSide(color: neutral50)),
+                            borderSide: BorderSide(color: neutral50)),
                         hintText: 'Masukan Nomor WhatsApp',
                         hintStyle: textMBold.copyWith(color: neutral50),
                         border: UnderlineInputBorder(
-                            borderSide: new BorderSide(color: neutral30)))),
-                SizedBox(
+                            borderSide: BorderSide(color: neutral30)))),
+                const SizedBox(
                   height: 15,
                 ),
                 Text(
@@ -81,7 +81,10 @@ class _SignUpPageState extends State<SignUpPage> {
                     obscureText: isSecurePass,
                     decoration: InputDecoration(
                         suffixIcon: IconButton(
-                          icon: Icon(Icons.remove_red_eye),
+                          color: Colors.grey,
+                          icon: Icon(isSecurePass
+                              ? Icons.remove_red_eye
+                              : Icons.remove_red_eye_outlined),
                           onPressed: () {
                             setState(() {
                               isSecurePass = !isSecurePass;
@@ -89,11 +92,11 @@ class _SignUpPageState extends State<SignUpPage> {
                           },
                         ),
                         focusedBorder: UnderlineInputBorder(
-                            borderSide: new BorderSide(color: neutral50)),
+                            borderSide: BorderSide(color: neutral50)),
                         hintText: 'Masukan kata sandi',
                         hintStyle: textMBold.copyWith(color: neutral50),
                         border: UnderlineInputBorder(
-                            borderSide: new BorderSide(color: neutral30)))),
+                            borderSide: BorderSide(color: neutral30)))),
                 Padding(
                   padding: const EdgeInsets.only(top: 10),
                   child: Text(
@@ -102,7 +105,7 @@ class _SignUpPageState extends State<SignUpPage> {
                     style: overlineSemiBold.copyWith(color: neutral70),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
                 Text(
@@ -115,7 +118,10 @@ class _SignUpPageState extends State<SignUpPage> {
                     obscureText: isSecurePassConfirm,
                     decoration: InputDecoration(
                         suffixIcon: IconButton(
-                          icon: Icon(Icons.remove_red_eye),
+                          color: Colors.grey,
+                          icon: Icon(isSecurePassConfirm
+                              ? Icons.remove_red_eye
+                              : Icons.remove_red_eye_outlined),
                           onPressed: () {
                             setState(() {
                               isSecurePassConfirm = !isSecurePassConfirm;
@@ -123,11 +129,11 @@ class _SignUpPageState extends State<SignUpPage> {
                           },
                         ),
                         focusedBorder: UnderlineInputBorder(
-                            borderSide: new BorderSide(color: neutral50)),
+                            borderSide: BorderSide(color: neutral50)),
                         hintText: 'Ketik ulang kata sandi',
                         hintStyle: textMBold.copyWith(color: neutral50),
                         border: UnderlineInputBorder(
-                            borderSide: new BorderSide(color: neutral30)))),
+                            borderSide: BorderSide(color: neutral30)))),
               ],
             ),
           ),
@@ -137,29 +143,29 @@ class _SignUpPageState extends State<SignUpPage> {
         padding: MediaQuery.of(context).viewInsets,
         child: BottomAppBar(
             elevation: 0,
-            child: Container(
+            child: SizedBox(
               height: 115,
               width: double.maxFinite,
               child: Column(
                 children: [
                   Padding(
                     padding: const EdgeInsets.all(15),
-                    child: Container(
+                    child: SizedBox(
                         width: double.infinity,
                         height: 45,
                         child: ElevatedButton(
                           onPressed: () {},
+                          style: ElevatedButton.styleFrom(
+                              backgroundColor: primaryMain),
                           child: Text(
                             textAlign: TextAlign.start,
                             'Daftar',
                             style: textMBold,
                           ),
-                          style: ElevatedButton.styleFrom(
-                              backgroundColor: primaryMain),
                         )),
                   ),
                   Container(
-                    padding: EdgeInsets.symmetric(vertical: 6),
+                    padding: const EdgeInsets.symmetric(vertical: 6),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -168,7 +174,7 @@ class _SignUpPageState extends State<SignUpPage> {
                           'Sudah memiliki akun?',
                           style: captionTextBold.copyWith(color: neutral60),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 10,
                         ),
                         InkWell(
